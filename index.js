@@ -22,8 +22,26 @@ let fibonacci2 = function (n) {
     return s;
   }
 };
-
 console.log(fibonacci2(5));
+
+/////////////////another method ///////////////////
+const fibonacci3 = function (num, counter = 1, arr = [0, 1]) {
+  if (num === 0) {
+    return [0];
+  } else if (num === 1) {
+    return arr;
+  }
+
+  arr.push(arr[counter - 1] + arr[counter]);
+  counter++;
+  if (counter >= num) {
+    return arr;
+  }
+  return fibonacci3(num, counter, arr);
+};
+
+console.log(`+++++++++++++++++++++++`, fibonacci3(5));
+console.log(`+++++++++++++++++++++++`, fibonacci3(8));
 
 console.log(fibonacci(0)); // [0]
 console.log(`----------------`);
